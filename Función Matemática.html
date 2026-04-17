@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4: Función Matemática</title>
+</head>
+<body>
+    <h2>Graficar Función Matemática: y = x²</h2>
+    <CENTER><h2>REALIZADO POR : MARCO ANTONIO ALVAREZ CAYO</h2></CENTER>
+    
+    <div style="text-align: center;">
+        <canvas id="canvas4" width="500" height="500" style="border:1px solid black;"></canvas>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("canvas4");
+        var ctx = canvas.getContext("2d");
+
+        // --- DIBUJAR EJES CENTRADOS ---
+        ctx.strokeStyle = "#eee";
+        ctx.beginPath();
+        ctx.moveTo(250, 0); ctx.lineTo(250, 500); // Eje Y (Centro)
+        ctx.moveTo(0, 450); ctx.lineTo(500, 450); // Eje X (Suelo)
+        ctx.stroke();
+
+        // --- GRAFICAR PARÁBOLA ---
+        ctx.beginPath();
+        ctx.strokeStyle = "blue";
+        ctx.lineWidth = 3;
+
+        for (var x = -100; x <= 100; x++) {
+            var y = Math.pow(x, 2); // y = x²
+            
+            // Centrado: 250 es la mitad del ancho
+            var drawX = 250 + x * 2; 
+            // 450 es el suelo del dibujo
+            var drawY = 450 - y * 0.04; 
+
+            if (x == -100) ctx.moveTo(drawX, drawY);
+            else ctx.lineTo(drawX, drawY);
+        }
+        ctx.stroke();
+    </script>
+</body>
+</html>
