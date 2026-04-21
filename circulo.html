@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+    <CENTER><h2>EJERCICIO: DIBUJAR UN CÍRCULO</h2></CENTER>
+    <div style="text-align: center;">
+        <canvas id="c1" width="400" height="400" style="border:1px solid black;"></canvas>
+        <br><a href="index.html">Volver</a>
+    </div>
+    <script>
+        var ctx = document.getElementById("c1").getContext("2d");
+        ctx.beginPath();
+        ctx.arc(200, 200, 80, 0, 2 * Math.PI);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+</html>
