@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2: Puntos Dinámicos</title>
+</head>
+<body>
+    <CENTER><h2>EJERCICIO 2: GRÁFICO DE PUNTOS EN MOVIMIENTO</h2></CENTER>
+    <CENTER><h3>REALIZADO POR : MARCO ANTONIO ALVAREZ CAYO</h3></CENTER>
+    
+    <div style="text-align: center;">
+        <canvas id="canvasPuntos" width="600" height="400" style="border: 1px solid black; background: #f9f9f9;"></canvas>
+        <br><br><a href="index.html">Volver al menú</a>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("canvasPuntos");
+        var ctx = canvas.getContext("2d");
+
+        function dibujarPuntos() {
+            // Borra la posición anterior antes de redibujar [cite: 23, 29]
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar al menos 5 puntos [cite: 27]
+            for (var i = 0; i < 5; i++) {
+                var px = Math.random() * canvas.width;
+                var py = Math.random() * canvas.height;
+
+                ctx.beginPath();
+                ctx.arc(px, py, 10, 0, Math.PI * 2);
+                ctx.fillStyle = "red";
+                ctx.fill();
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+            }
+        }
+
+        // Cambio de posición cada segundo [cite: 21, 28]
+        setInterval(dibujarPuntos, 1000);
+        dibujarPuntos();
+    </script>
+</body>
+</html>
