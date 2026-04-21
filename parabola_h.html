@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+    <CENTER><h2>FUNCIÓN MATEMÁTICA: X = Y² (ESPEJO)</h2></CENTER>
+    <div style="text-align: center;">
+        <canvas id="c4" width="400" height="400" style="border:1px solid black;"></canvas>
+        <br><a href="index.html">Volver</a>
+    </div>
+    <script>
+        var ctx = document.getElementById("c4").getContext("2d");
+        ctx.lineWidth = 2;
+        // Derecha
+        ctx.beginPath(); ctx.strokeStyle = "blue";
+        for(var y=-100; y<=100; y++){
+            ctx.lineTo(200 + (y*y*0.015), 200 + y);
+        }
+        ctx.stroke();
+        // Izquierda
+        ctx.beginPath(); ctx.strokeStyle = "green";
+        for(var y=-100; y<=100; y++){
+            ctx.lineTo(200 - (y*y*0.015), 200 + y);
+        }
+        ctx.stroke();
+    </script>
+</body>
+</html>
