@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+    <CENTER><h2>FUNCIÓN MATEMÁTICA: Y = X²</h2></CENTER>
+    <div style="text-align: center;">
+        <canvas id="c3" width="400" height="400" style="border:1px solid black;"></canvas>
+        <br><a href="index.html">Volver</a>
+    </div>
+    <script>
+        var ctx = document.getElementById("c3").getContext("2d");
+        ctx.beginPath();
+        ctx.strokeStyle = "red";
+        for (var x = -100; x <= 100; x++) {
+            var drawX = 200 + x;
+            var drawY = 350 - (Math.pow(x, 2) * 0.03);
+            if (x == -100) ctx.moveTo(drawX, drawY);
+            else ctx.lineTo(drawX, drawY);
+        }
+        ctx.stroke();
+    </script>
+</body>
+</html>
