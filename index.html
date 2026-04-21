@@ -2,38 +2,211 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Portafolio Completo - Marco Antonio Alvarez</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Pro - Marco Antonio Alvarez</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #f4f4f9; padding: 30px; }
-        .container { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: inline-block; width: 80%; max-width: 600px; }
-        h1 { color: #2c3e50; margin-bottom: 5px; }
-        h3 { color: #7f8c8d; margin-top: 0; }
-        ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; }
-        li { background: #ecf0f1; padding: 10px; border-radius: 8px; }
-        a { text-decoration: none; color: #2980b9; font-weight: bold; }
-        a:hover { color: #d35400; }
-        .section-title { grid-column: span 2; font-weight: bold; margin-top: 10px; border-bottom: 1px solid #ccc; }
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #f59e0b;
+        }
+
+        body { 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            background-color: #0f172a; 
+            color: var(--light);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container { 
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Encabezado Principal */
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        h1 { 
+            font-size: 2.5rem;
+            margin: 0;
+            background: linear-gradient(to right, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .user-info {
+            margin-top: 15px;
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Grid de Ejercicios */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .section-header {
+            grid-column: 1 / -1;
+            font-size: 1.2rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 24px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: #334155;
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card-content h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .card-content p {
+            margin: 5px 0 0;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .arrow {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Computación Gráfica</h1>
-        <h3>MARCO ANTONIO ALVAREZ CAYO</h3>
-        <hr>
-        <ul>
-            <li class="section-title">Figuras Básicas</li>
-            <li><a href="circulo.html">1. Círculo</a></li>
-            <li><a href="cuadrado_triangulo.html">2. Cuadrado y Triángulo</a></li>
+        <header class="header">
+            <h1>Computación Gráfica</h1>
+            <div class="user-info">
+                <strong>Estudiante:</strong> MARCO ANTONIO ALVAREZ CAYO <br>
+                <strong>Código:</strong> 202102042J <span class="badge">MODEKFC</span>
+            </div>
+        </header>
+
+        <div class="grid">
+            <div class="section-header">Figuras Básicas</div>
             
-            <li class="section-title">Funciones Matemáticas</li>
-            <li><a href="parabola_v.html">3. Parábola Vertical</a></li>
-            <li><a href="parabola_h.html">4. Parábola Horizontal</a></li>
-            
-            <li class="section-title">Movimientos Dinámicos (Tarea)</li>
-            <li><a href="barras.html">5. Barras Dinámicas</a></li>
-            <li><a href="puntos.html">6. Puntos en Movimiento</a></li>
-            <li><a href="coseno.html">7. Función Coseno</a></li>
-        </ul>
+            <a href="circulo.html" class="card">
+                <div class="card-content">
+                    <h4>1. Círculo Perfecto</h4>
+                    <p>Uso del método arc()</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="cuadrado_triangulo.html" class="card">
+                <div class="card-content">
+                    <h4>2. Figuras Geométricas</h4>
+                    <p>Cuadrado y Triángulo relleno</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <div class="section-header">Funciones Matemáticas</div>
+
+            <a href="parabola_v.html" class="card">
+                <div class="card-content">
+                    <h4>3. Parábola Vertical</h4>
+                    <p>Representación de y = x²</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="parabola_h.html" class="card">
+                <div class="card-content">
+                    <h4>4. Parábola Horizontal</h4>
+                    <p>Espejo matemático x = y²</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <div class="section-header">Movimientos Dinámicos (Tarea)</div>
+
+            <a href="barras.html" class="card">
+                <div class="card-content">
+                    <h4>5. Barras Dinámicas</h4>
+                    <p>setInterval + Math.random()</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="puntos.html" class="card">
+                <div class="card-content">
+                    <h4>6. Puntos en Movimiento</h4>
+                    <p>Animación aleatoria en Canvas</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="coseno.html" class="card">
+                <div class="card-content">
+                    <h4>7. Función Coseno</h4>
+                    <p>requestAnimationFrame fluido</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+        </div>
+
+        <footer>
+            &copy; 2026 - Proyecto de Computación Gráfica | MODEKFC
+        </footer>
     </div>
 </body>
 </html>
