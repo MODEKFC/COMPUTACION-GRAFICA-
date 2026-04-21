@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3: Función Coseno</title>
+</head>
+<body>
+    <CENTER><h2>EJERCICIO 3: CURVA DINÁMICA FUNCIÓN COSENO</h2></CENTER>
+    <CENTER><h3>REALIZADO POR : MARCO ANTONIO ALVAREZ CAYO</h3></CENTER>
+    
+    <div style="text-align: center;">
+        <canvas id="canvasCoseno" width="800" height="400" style="border: 1px solid black;"></canvas>
+        <br><br><a href="index.html">Volver al menú</a>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("canvasCoseno");
+        var ctx = canvas.getContext("2d");
+        var time = 0; // Variable x que avanza progresivamente [cite: 35]
+
+        function animar() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar la curva usando líneas [cite: 43]
+            ctx.beginPath();
+            ctx.strokeStyle = "purple";
+            ctx.lineWidth = 3;
+
+            for (var x = 0; x < canvas.width; x++) {
+                // Cálculo de puntos de la función coseno [cite: 42]
+                var y = Math.cos((x + time) * 0.03) * 100 + 200;
+                
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Actualización para mostrar movimiento [cite: 44, 45]
+            time += 2;
+            requestAnimationFrame(animar);
+        }
+
+        animar();
+    </script>
+</body>
+</html>
