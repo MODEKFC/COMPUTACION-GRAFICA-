@@ -2,21 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mis Ejercicios de Computación Gráfica</title>
+    <title>Portafolio Completo - Marco Antonio Alvarez</title>
     <style>
-        body { font-family: Arial; text-align: center; padding: 50px; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 10px 0; }
-        a { text-decoration: none; color: blue; font-size: 20px; }
-        a:hover { text-decoration: underline; }
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #f4f4f9; padding: 30px; }
+        .container { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: inline-block; width: 80%; max-width: 600px; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        h3 { color: #7f8c8d; margin-top: 0; }
+        ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; }
+        li { background: #ecf0f1; padding: 10px; border-radius: 8px; }
+        a { text-decoration: none; color: #2980b9; font-weight: bold; }
+        a:hover { color: #d35400; }
+        .section-title { grid-column: span 2; font-weight: bold; margin-top: 10px; border-bottom: 1px solid #ccc; }
     </style>
 </head>
 <body>
-    <h1>Portafolio de Ejercicios - Marco Antonio Alvarez</h1>
-    <ul>
-        <li><a href="Función Matemática.html">Ejercicio 1: Barras Dinámicas</a></li>
-        <li><a href="GRAFICOS_DE_BARRAS.html">Ejercicio 2: Puntos en Movimiento</a></li>
-        <li><a href="funciones dinámicas.html">Ejercicio 3: Función Coseno</a></li>
-    </ul>
+    <div class="container">
+        <h1>Computación Gráfica</h1>
+        <h3>MARCO ANTONIO ALVAREZ CAYO</h3>
+        <hr>
+        <ul>
+            <li class="section-title">Figuras Básicas</li>
+            <li><a href="circulo.html">1. Círculo</a></li>
+            <li><a href="cuadrado_triangulo.html">2. Cuadrado y Triángulo</a></li>
+            
+            <li class="section-title">Funciones Matemáticas</li>
+            <li><a href="parabola_v.html">3. Parábola Vertical</a></li>
+            <li><a href="parabola_h.html">4. Parábola Horizontal</a></li>
+            
+            <li class="section-title">Movimientos Dinámicos (Tarea)</li>
+            <li><a href="barras.html">5. Barras Dinámicas</a></li>
+            <li><a href="puntos.html">6. Puntos en Movimiento</a></li>
+            <li><a href="coseno.html">7. Función Coseno</a></li>
+        </ul>
+    </div>
 </body>
 </html>
