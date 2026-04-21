@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+    <CENTER><h2>EJERCICIO: CUADRADO Y TRIÁNGULO</h2></CENTER>
+    <div style="text-align: center;">
+        <canvas id="c2" width="400" height="400" style="border:1px solid black;"></canvas>
+        <br><a href="index.html">Volver</a>
+    </div>
+    <script>
+        var ctx = document.getElementById("c2").getContext("2d");
+        // Cuadrado
+        ctx.fillStyle = "blue";
+        ctx.fillRect(125, 50, 150, 150);
+        ctx.strokeRect(125, 50, 150, 150);
+        // Triángulo
+        ctx.beginPath();
+        ctx.moveTo(200, 250); ctx.lineTo(100, 380); ctx.lineTo(300, 380);
+        ctx.closePath();
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+</html>
