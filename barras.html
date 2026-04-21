@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1: Barras Dinámicas</title>
+</head>
+<body>
+    <CENTER><h2>EJERCICIO 1: GRÁFICO DE BARRAS DINÁMICO</h2></CENTER>
+    <CENTER><h3>REALIZADO POR : MARCO ANTONIO ALVAREZ CAYO</h3></CENTER>
+    
+    <div style="text-align: center;">
+        <canvas id="canvasBarras" width="600" height="400" style="border: 1px solid black;"></canvas>
+        <br><br><a href="index.html">Volver al menú</a>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("canvasBarras");
+        var ctx = canvas.getContext("2d");
+        var colores = ["red", "blue", "green", "orange", "purple"];
+
+        function dibujar() {
+            // Limpiar el lienzo antes de actualizar
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            var x = 100;
+            for (var i = 0; i < 5; i++) {
+                // Valores aleatorios entre 10 y 100 [cite: 13]
+                var valor = Math.floor(Math.random() * 91) + 10;
+                var altura = valor * 3; // Escala visual
+
+                ctx.fillStyle = colores[i];
+                ctx.fillRect(x, 350 - altura, 60, altura);
+                ctx.strokeRect(x, 350 - altura, 60, altura);
+
+                // Mostrar el valor numérico
+                ctx.fillStyle = "black";
+                ctx.font = "bold 14px Arial";
+                ctx.fillText(valor, x + 20, 340 - altura);
+                
+                x += 90; // Espaciado entre barras
+            }
+        }
+
+        // Actualización cada segundo [cite: 9, 14]
+        setInterval(dibujar, 1000);
+        dibujar(); 
+    </script>
+</body>
+</html>
