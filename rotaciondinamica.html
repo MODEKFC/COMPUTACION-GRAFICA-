@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotación 3D Interactiva - MODEKFC</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: radial-gradient(circle, #1b2735 0%, #090a0f 100%); }
+        canvas { display: block; }
+        .ui-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #c4a54e;
+            font-family: 'Segoe UI', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            pointer-events: none;
+            text-shadow: 0 0 10px rgba(196, 165, 78, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="ui-overlay">
+        <strong>Objeto:</strong> Cubo de Energía <br>
+        <strong>Estado:</strong> Rotación Activa
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // 1. ESCENA Y CONFIGURACIÓN FÍSICA
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // 2. GEOMETRÍA CON MATERIAL MEJORADO
+        // Usamos BoxGeometry pero esta vez un poco más grande
+        const geometry = new THREE.BoxGeometry(2, 2, 2);
+        // MeshNormalMaterial es genial, pero le añadiremos un toque de wireframe opcional
+        const material = new THREE.MeshNormalMaterial({ wireframe: false }); 
+        const cubo = new THREE.Mesh(geometry, material);
+        scene.add(cubo);
+
+        camera.position.z = 5;
+
+        // 3. INTERACTIVIDAD CON EL MOUSE
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+            // Normalizamos la posición del mouse
+            mouseX = (event.clientX / window.innerWidth) - 0.5;
+            mouseY = (event.clientY / window.innerHeight) - 0.5;
+        });
+
+        // 4. BUCLE DE ANIMACIÓN PROFESIONAL
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Rotación automática base 
+            cubo.rotation.x += 0.01;
+            cubo.rotation.y += 0.01;
+
+            // Influencia suave del mouse en la posición
+            cubo.position.x += (mouseX * 2 - cubo.position.x) * 0.05;
+            cubo.position.y += (-(mouseY * 2) - cubo.position.y) * 0.05;
+
+            renderer.render(scene, camera);
+        }
+
+        // 5. AJUSTE DE PANTALLA
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+
+        animate();
+    </script>
+</body>
+</html>
