@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Traslación 3D - MODEKFC</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0a0c0e; }
+        canvas { display: block; }
+        .info {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            color: #c4a54e;
+            font-family: 'Segoe UI', sans-serif;
+            pointer-events: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h2>Ejercicio: Traslación 3D</h2>
+        <p>MODEKFC | Marco Antonio Alvarez</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // 1. ESCENA Y RENDERIZADOR
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true }); // Antialias para bordes suaves
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // 2. OBJETO (CUBO)
+        const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+        const material = new THREE.MeshNormalMaterial(); // Colores automáticos según las caras
+        const cubo = new THREE.Mesh(geometry, material);
+        scene.add(cubo);
+
+        camera.position.z = 5;
+
+        // 3. VARIABLES DE CONTROL
+        let velocidadX = 0.03;
+        let velocidadY = 0.01;
+
+        // 4. FUNCIÓN DE ANIMACIÓN
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Traslación (Movimiento)
+            cubo.position.x += velocidadX;
+            cubo.position.y += velocidadY;
+
+            // Rotación constante para efecto 3D
+            cubo.rotation.x += 0.01;
+            cubo.rotation.y += 0.01;
+
+            // REBOTE LÓGICO (Corregido)
+            if (cubo.position.x > 3 || cubo.position.x < -3) {
+                velocidadX *= -1; // Invierte la dirección
+            }
+            if (cubo.position.y > 2 || cubo.position.y < -2) {
+                velocidadY *= -1;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // 5. AJUSTE DINÁMICO DE VENTANA (Responsive)
+        window.addEventListener('resize', () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+
+        animate();
+    </script>
+</body>
+</html>
