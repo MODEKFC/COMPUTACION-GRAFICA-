@@ -25,10 +25,9 @@
 
         .container { 
             width: 100%;
-            max-width: 900px;
+            max-width: 1100px;
         }
 
-        /* Encabezado Principal */
         .header {
             background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
             padding: 40px;
@@ -63,15 +62,26 @@
             margin-left: 10px;
         }
 
-        /* Grid de Ejercicios */
+        /* Layout de dos columnas */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .section-header {
-            grid-column: 1 / -1;
             font-size: 1.2rem;
             color: var(--accent);
             text-transform: uppercase;
@@ -79,6 +89,7 @@
             margin-top: 20px;
             border-bottom: 2px solid #334155;
             padding-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .card {
@@ -128,6 +139,10 @@
             font-size: 0.9rem;
             color: #64748b;
         }
+
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -140,94 +155,112 @@
             </div>
         </header>
 
-        <div class="grid">
-            <div class="section-header">Figuras Básicas</div>
-            
-            <a href="circulo.html" class="card">
-                <div class="card-content">
-                    <h4>1. Círculo Perfecto</h4>
-                    <p>Uso del método arc()</p>
+        <div class="main-layout">
+            <div>
+                <div class="section-header">Figuras Básicas</div>
+                <div class="grid" style="margin-bottom: 30px;">
+                    <a href="circulo.html" class="card">
+                        <div class="card-content">
+                            <h4>1. Círculo Perfecto</h4>
+                            <p>Uso del método arc()</p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
+                    <a href="cuadrado_triangulo.html" class="card">
+                        <div class="card-content">
+                            <h4>2. Figuras Geométricas</h4>
+                            <p>Cuadrado y Triángulo relleno</p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
                 </div>
-                <div class="arrow">→</div>
-            </a>
 
-            <a href="cuadrado_triangulo.html" class="card">
-                <div class="card-content">
-                    <h4>2. Figuras Geométricas</h4>
-                    <p>Cuadrado y Triángulo relleno</p>
+                <div class="section-header">Funciones Matemáticas</div>
+                <div class="grid" style="margin-bottom: 30px;">
+                    <a href="parabola_v.html" class="card">
+                        <div class="card-content">
+                            <h4>3. Parábola Vertical</h4>
+                            <p>Representación de y = x²</p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
+                    <a href="parabola_h.html" class="card">
+                        <div class="card-content">
+                            <h4>4. Parábola Horizontal</h4>
+                            <p>Espejo matemático x = y²</p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
                 </div>
-                <div class="arrow">→</div>
-            </a>
 
-            <div class="section-header">Funciones Matemáticas</div>
-
-            <a href="parabola_v.html" class="card">
-                <div class="card-content">
-                    <h4>3. Parábola Vertical</h4>
-                    <p>Representación de y = x²</p>
+                <div class="section-header">Movimientos Dinámicos (Tarea)</div>
+                <div class="grid" style="margin-bottom: 30px;">
+                    <a href="barras.html" class="card">
+                        <div class="card-content">
+                            <h4>5. Barras Dinámicas</h4>
+                            <p>setInterval + Math.random()</p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
+                    <a href="puntos.html" class="card">
+                        <div class="card-content">
+                            <h4>6. Puntos en Movimiento</h4>
+                            <p>Animación aleatoria en Canvas</p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
+                    <a href="coseno.html" class="card">
+                        <div class="card-content">
+                            <h4>7. Función Coseno</h4>
+                            <p>requestAnimationFrame fluid</p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
                 </div>
-                <div class="arrow">→</div>
-            </a>
 
-            <a href="parabola_h.html" class="card">
-                <div class="card-content">
-                    <h4>4. Parábola Horizontal</h4>
-                    <p>Espejo matemático x = y²</p>
+                <div class="section-header">objetos 3d (Tarea 2)</div>
+                <div class="grid">
+                    <a href="traslacion.html" class="card">
+                        <div class="card-content">
+                            <h4>8. traslacion </h4>
+                            <p></p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
+                    <a href="rotaciondinamica.html" class="card">
+                        <div class="card-content">
+                            <h4>9. rotacion</h4>
+                            <p></p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
+                    <a href="escalado.html" class="card">
+                        <div class="card-content">
+                            <h4>10. dinamico</h4>
+                            <p></p>
+                        </div>
+                        <div class="arrow">→</div>
+                    </a>
                 </div>
-                <div class="arrow">→</div>
-            </a>
+            </div>
 
-            <div class="section-header">Movimientos Dinámicos (Tarea)</div>
-
-            <a href="barras.html" class="card">
-                <div class="card-content">
-                    <h4>5. Barras Dinámicas</h4>
-                    <p>setInterval + Math.random()</p>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <a href="puntos.html" class="card">
-                <div class="card-content">
-                    <h4>6. Puntos en Movimiento</h4>
-                    <p>Animación aleatoria en Canvas</p>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <a href="coseno.html" class="card">
-                <div class="card-content">
-                    <h4>7. Función Coseno</h4>
-                    <p>requestAnimationFrame fluid</p>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <div class="section-header">objetos 3d (Tarea 2)</div>
-
-            <a href="traslacion.html" class="card">
-                <div class="card-content">
-                    <h4>8. traslacion </h4>
-                    <p></p>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <a href="rotaciondinamica.html" class="card">
-                <div class="card-content">
-                    <h4>9. rotacion</h4>
-                    <p></p>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <a href="escalado.html" class="card">
-                <div class="card-content">
-                    <h4>10. dinamico</h4>
-                    <p></p>
-                </div>
-                <div class="arrow">→</div>
-            </a>
+            <aside class="sidebar">
+                <div class="section-header">Investigación</div>
+                <a href="curvas_parametricas.html" class="card" style="border-left: 4px solid var(--primary);">
+                    <div class="card-content">
+                        <h4>Curvas Paramétricas</h4>
+                        <p>Teoría y Continuidad</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+                <a href="mallas_poligonales.html" class="card" style="border-left: 4px solid var(--primary);">
+                    <div class="card-content">
+                        <h4>Mallas Poligonales</h4>
+                        <p>Estructuras de Datos</p>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </aside>
         </div>
 
         <footer>
